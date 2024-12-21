@@ -516,6 +516,7 @@ export class Manager extends Disposable {
 		serverGrouping?: ServerGrouping
 	): Promise<void> {
 		if (file.scheme !== 'file') {
+			// Is this an error?
 			console.error('Tried to open a non-file URI with file opener');
 		}
 		if (!serverGrouping) {

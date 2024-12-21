@@ -293,7 +293,7 @@ export class ContentLoader extends Disposable {
 		let contentLength = 0;
 
 		while (i < workspaceDocuments.length) {
-			if (PathUtil.PathEquals(readPath, workspaceDocuments[i].fileName)) {
+			if (PathUtil.PathEquals(readPath, workspaceDocuments[i].fileName) || (workspaceDocuments[i].uri.scheme === 'vscode-chat-code-block' && workspaceDocuments[i].uri.with({ fragment: '' }).toString() === readPath)) {
 				if (inFilesystem && workspaceDocuments[i].isUntitled) {
 					continue;
 				}

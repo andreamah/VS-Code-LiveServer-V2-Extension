@@ -126,7 +126,7 @@
         },
         {
           "command": "livePreview.setDefaultOpenFile",
-          "when": "resourceLangId == html",
+          "when": "resourceLangId == html && !inChat",
           "group": "1_livepreview@2"
         }
       ],
