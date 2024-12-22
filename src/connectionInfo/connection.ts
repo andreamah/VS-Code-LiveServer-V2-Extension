@@ -27,8 +27,6 @@ export interface ConnectionInfo {
  * is also needed from the `PreviewManager`.
  */
 export class Connection extends Disposable {
-	public httpServerBase: string | undefined;
-	public wsServerBase: string | undefined;
 	public wsPath = '';
 
 	private readonly _onConnected = this._register(
