@@ -301,7 +301,7 @@ export class ContentLoader extends Disposable {
 
 				if (workspaceDocuments[i].languageId == 'html') {
 					fileContents = this._injectIntoFile(fileContents);
-					contentType = 'text/html';
+					contentType = contentType.includes('html') ? contentType : 'text/html';
 				}
 
 				const fileContentsBuffer = Buffer.from(fileContents);
