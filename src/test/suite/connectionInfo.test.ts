@@ -55,7 +55,7 @@ describe('ConnectionInfo', () => {
 
 		assert.ok(target.calledOnce);
 		const httpUri = vscode.Uri.parse('http://127.0.0.1:3000');
-		const wsUri = vscode.Uri.parse('http://127.0.0.1:3001/1234');
+		const wsUri = vscode.Uri.parse('ws://127.0.0.1:3001/1234');
 		assert.deepStrictEqual([
 			{
 				httpURI: httpUri,
@@ -103,7 +103,7 @@ describe('ConnectionInfo', () => {
 		await connection.connected();
 		assert(connection.workspace === undefined);
 		const httpUri = vscode.Uri.parse('http://127.0.0.1:3000');
-		const wsUri = vscode.Uri.parse('http://127.0.0.1:3001/1234');
+		const wsUri = vscode.Uri.parse('ws://127.0.0.1:3001/1234');
 
 		assert.ok(target.calledOnce);
 		assert.deepStrictEqual([

@@ -132,7 +132,7 @@ export class WebviewComm extends Disposable {
 		this._panel.webview.html = this._getHtmlForWebview(
 			webview,
 			url,
-			`ws://${wsURI.authority}${wsURI.path}`,
+			`${wsURI.scheme}://${wsURI.authority}${wsURI.path}`,
 			`${httpHost.scheme}://${httpHost.authority}`
 		);
 
