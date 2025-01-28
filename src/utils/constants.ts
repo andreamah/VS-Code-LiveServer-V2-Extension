@@ -38,3 +38,5 @@ export const LIVE_PREVIEW_SERVER_ON = 'LivePreviewServerOn';
 export const TASK_TERMINAL_BASE_NAME = vscode.l10n.t('Run Server');
 
 export const DEFAULT_HTTP_HEADERS = { 'Accept-Ranges': 'bytes' };
+
+export const DEFAULT_PATH_EXTENSIONS = [ '.html', '.htm' ];
