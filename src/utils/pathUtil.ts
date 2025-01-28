@@ -203,11 +203,30 @@ export class PathUtil {
 	/**
 	 * @description used to get the `serverRoot` setting properly, as it is only applied when using it would make a valid path
 	 * @param workspace
-	 * @returns the server root from settings if it would point to an existing directory
+	 * @returns the server root from settings if any of the paths would point to an existing directory
 	 */
 	public static async GetValidServerRootForWorkspace(workspace: vscode.WorkspaceFolder): Promise<string> {
-		const root = SettingUtil.GetConfig(workspace).serverRoot;
-		return (await PathUtil.FileExistsStat(path.join(workspace.uri.fsPath, root))).exists ? root : '';
+		const serverRoot = SettingUtil.GetConfig(workspace).serverRoot;
+		const roots: string[] = Array.isArray(serverRoot) ? serverRoot : [serverRoot];
+
+		for (const root of roots) {
+			if (root === '.') {
+				const activeFilePath = vscode.window.activeTextEditor?.document.uri.fsPath;
+				if (!activeFilePath) {
+					continue;
+				}
+				const relative = path.relative(workspace.uri.fsPath, path.dirname(activeFilePath));
+				if (relative.startsWith('..')) {
+					continue;
+				}
+				return relative;
+			}
+
+			if ((await PathUtil.FileExistsStat(path.join(workspace.uri.fsPath, root))).exists) {
+				return root;
+			}
+		}
+		return '';
 	}
 
 	/**

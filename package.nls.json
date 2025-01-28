@@ -20,7 +20,7 @@
 	"settings.tasks.runTaskWithExternalPreview": "Whether or not to pair external preview instances with the auto-generated server task. When disabled, the server will also not automatically close (until the window is closed).",
 	"settings.defaultPreviewPath": "The file to automatically show upon starting the server. Leave blank to open at the index.",
 	"settings.debugOnExternalPreview": "Whether or not to attach the JavaScript debugger on external preview launches.",
-	"settings.serverRoot": "The relative path from the workspace root that the files are served from. Files will be previewed as if the workspace root is at this relative path. If this directory path doesn't exist in your workspace, it will default to the workspace root. This setting only applies if you have a workspace open.",
+	"settings.serverRoot": "The preferred relative paths from the workspace root that the files are served from. A special '.' can be used to denote the relative path of current open file. The first directory found will be used as the server root. Files will be previewed as if the workspace root is at this relative path. If none of the directory paths exists in your workspace, it will default to the workspace root. This setting only applies if you have a workspace open.",
 	"settings.hostIP": "The local IP host address to host your files on.",
 	"settings.customExternalBrowser": "The browser you want to launch when previewing a file in an external browser. Only works for normal preview (non-debug) and only works on desktop.",
 	"settings.httpHeaders": "The extra HTTP headers that should be set in the server's HTTP responses.",

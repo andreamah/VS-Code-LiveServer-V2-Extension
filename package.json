@@ -245,8 +245,13 @@
           "scope": "resource"
         },
         "livePreview.serverRoot": {
-          "type": "string",
-          "default": "",
+          "type": [
+            "string",
+            "array"
+          ],
+          "items": {
+            "type": "string"
+          },
           "description": "%settings.serverRoot%",
           "scope": "resource"
         },

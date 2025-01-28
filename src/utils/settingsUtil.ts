@@ -21,7 +21,7 @@ export interface ILivePreviewConfigItem {
 	debugOnExternalPreview: boolean;
 	hostIP: string;
 	customExternalBrowser: CustomExternalBrowser;
-	serverRoot: string;
+	serverRoot: string | string[];
 	previewDebounceDelay: number;
 	httpHeaders: any;
 }
